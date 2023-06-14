@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lathian Jquery 02</title>
+  </head>
+  <body>
+    <h3>Judul</h3>
+
+    <div>
+        <button type="button" class="C1">Persegi</button>
+        <button type="button" class="C2">segitiga</button>
+
+    </div>
+
+    <div id="persegi">
+        <div>
+        Nilai Panjanng
+        <input type="number" class="PJ" />
+        </div>
+        <div>
+        Nilai Lebar
+        <input type="number" class="LB" />
+        </div>
+        <div>
+        <button type="button" class="HitungPersegi">Hitung luas</button>
+        </div>
+    </div>
+
+
+    <div id="segitiga">
+        <div>
+        Nilai Alas
+        <input type="number" class="AL" />
+        </div>
+        <div>
+        Nilai Tinggi
+        <input type="number" class="TG" />
+        </div>
+        <div>
+        <button type="button" class="HitungSegitiga">Hitung luas</button>
+        </div>
+    </div>
+    <div id="hasil"></div>
+
+    <script src="jquery-3.7.0.min.js"></script>
+
+    <script>
+        $(function(){
+           $("#persegi").hide();
+           $("#segitiga").hide();
+
+           $(".C1").click(function(){
+                $("h3").html("hitung luas persegi");
+                $("#segitiga").hide(5000);
+                $("#persegi").show(5000);
+                $("#hasil").html("");
+           });
+           $(".C2").click(function(){
+                $("h3").html("hitung luas segitiga");
+                $("#persegi").hide(5000);
+                $("#segitiga").show(5000);
+                $("#hasil").html("");
+           });
+           $(".HitungPersegi").click(function(){
+                //input
+                let P = $(".PJ").val();
+                let L = $(".LB").val();
+                //prosess
+                let LU = P*L;
+                //output
+                let tx = "Nilai Luas Dari Persegi Dengan Panjang"+P;
+                tx += " dan Lebar "+L+" adalah <br>";
+                tx += "Luas = Panjang X"+L+"<br>";
+                tx += "="+P+" X " +L+ " <br>";
+                tx += "="+LU+"<br> Jadi Luasnya adalah "+LU;
+
+                $("#hasil").html(tx);
+
+           
+            }); 
+            
+        });
+
+    </script>
+  </body>
+</html>
